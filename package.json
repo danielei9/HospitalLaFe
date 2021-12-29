@@ -40,6 +40,8 @@
     "dependencies": "^0.0.1",
     "express": "^4.17.2",
     "express-winston": "^4.2.0",
+    "mongodb": "^4.2.2",
+    "mongoose": "^6.1.4",
     "rimraf": "^3.0.2",
     "winston": "^3.3.3"
   }

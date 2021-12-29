@@ -17,6 +17,7 @@ export abstract class CommonRoutesConfig {
         this.configureRoutes(); // necesario el abstract por que asegura qe va a existir
 
     }
+    /* EXAMPLE */
     getName() {
         return this.name;
     }

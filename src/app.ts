@@ -7,6 +7,7 @@ import cors from 'cors';
 import {CommonRoutesConfig} from './route/common.routes.config';
 import {UsersRoutes} from './route/users/users.route.config';
 import debug from 'debug';
+import './config/connection'
 
 
 const app: express.Application = express();
