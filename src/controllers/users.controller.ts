@@ -9,7 +9,7 @@ var User = require("../models/User");
 
 export const allUsers = (req: Request, res: Response) => {
     
-    const users = User.find((err: any, users: any) => {
+  User.find((err: any, users: any) => {
         if (err) {
             res.status(404).send(err);
             console.log(err);
@@ -21,7 +21,7 @@ export const allUsers = (req: Request, res: Response) => {
 };
 
 export const showUser = (req: Request, res: Response) => {
-    const user = User.findById(req.params.id, (err: any, user: any) => {
+  User.findById(req.params.id, (err: any, user: any) => {
         if (err) {
             res.send(err);
         } else {
@@ -43,7 +43,7 @@ export const addUser = (req: Request, res: Response) => {
 };
 
 export const updateUser = (req: Request, res: Response) => {
-    let user = User.findByIdAndUpdate(
+   User.findByIdAndUpdate(
         req.params.id,
         req.body,
         (err: any, user: any) => {

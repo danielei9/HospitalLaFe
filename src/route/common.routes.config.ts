@@ -7,6 +7,7 @@
  * y acceso al Application object principal Express.js .
 */
 import express from 'express';
+
 export abstract class CommonRoutesConfig {
     app: express.Application;
     name: string;
@@ -21,6 +22,7 @@ export abstract class CommonRoutesConfig {
     getName() {
         return this.name;
     }
+  
     /**
      * Esto obliga a cualquier clase que se extienda CommonRoutesConfiga
      * proporcionar una implementación que coincida con esa firma; si no lo 
@@ -29,4 +31,4 @@ export abstract class CommonRoutesConfig {
 
     abstract configureRoutes(): express.Application;
 
-}
+    }
