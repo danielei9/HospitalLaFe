@@ -9,11 +9,10 @@ import {exec} from 'child_process'
 
 export const start = (req: Request, res: Response) => {
  
-    exec('python C:/Users/dbs99/Desktop/Proyectos Buchu/HospitalLaFe_FrontEnd/Python/hospiPython.py', (error, stdout, stderr) => {
+    exec('python /opt/HospitalLaFe_FrontEnd/PythonhospiPython.py', (error, stdout, stderr) => {
         if (error) {
             console.error(`error: ${error.message}`);
             res.status(404).send(`error: ${error.message}`);
-
             return;
         }
         if (stderr) {

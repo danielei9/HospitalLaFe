@@ -6,13 +6,14 @@ import * as expressWinston from 'express-winston';
 import cors from 'cors';
 import {CommonRoutesConfig} from './route/common.routes.config';
 import {UsersRoutes} from './route/users/users.route.config';
+import {ControlRoutes} from './route/control/control.route.config';
 import debug from 'debug';
 import './config/connection'
 
 
 const app: express.Application = express();
 const server: http.Server = http.createServer(app);
-const PORT = 3000;
+const PORT = 7878;
 const routes: Array<CommonRoutesConfig> = [];
 const debugLog: debug.IDebugger = debug('app')
 // here we are adding middleware to parse all incoming requests as JSON 
@@ -42,6 +43,7 @@ app.use(expressWinston.logger(loggerOptions));
 // here we are adding the UserRoutes to our array,
 // after sending the Express.js application object to have the routes added to our app!
 routes.push(new UsersRoutes(app));
+routes.push(new ControlRoutes(app));
 
 // this is a simple route to make sure everything is working properly
 const runningMessage = `Server running at http://localhost:${PORT}`;

@@ -23,6 +23,7 @@ export class ControlRoutes  extends CommonRoutesConfig {
              *  GET   /users   returns a list of users 
              * */
             .get((req: express.Request, res: express.Response) => {
+                console.log("START")
                 start(req, res)
             })
             /**
