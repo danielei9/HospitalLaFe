@@ -7,6 +7,7 @@
 import { CommonRoutesConfig } from '../common.routes.config';
 import express from 'express';
 import { start } from "../../controllers/control.controller";
+import { auth } from '../../middlewares/auth.middlewares'
 
 /* 
  Importando la CommonRoutesConfigclase y extendiéndola a nuestra nueva clase, 
@@ -22,7 +23,7 @@ export class ControlRoutes  extends CommonRoutesConfig {
             /**
              *  GET   /users   returns a list of users 
              * */
-            .get((req: express.Request, res: express.Response) => {
+            .get(auth,(req: express.Request, res: express.Response) => {
                 console.log("START")
                 start(req, res)
             })
@@ -36,7 +37,7 @@ export class ControlRoutes  extends CommonRoutesConfig {
             /**
              *  GET   /users   returns a list of users 
              * */
-            .get((req: express.Request, res: express.Response) => {
+            .get(auth,(req: express.Request, res: express.Response) => {
                 //start(req, res)
             })
         return this.app

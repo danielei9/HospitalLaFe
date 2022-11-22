@@ -20,7 +20,7 @@ export const start = (req: Request, res: Response) => {
             res.status(404).send(`stderr: ${stderr}`);
             return;
         }
-        res.status(200).send(`OK`);
+        res.status(200).send(`{stdout:\n${stdout}}`);
         console.log(`stdout:\n${stdout}`);
     });
 };
