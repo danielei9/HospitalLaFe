@@ -4,9 +4,11 @@ import * as http from 'http';
 import * as winston from 'winston';
 import * as expressWinston from 'express-winston';
 import cors from 'cors';
-import {CommonRoutesConfig} from './route/common.routes.config';
-import {UsersRoutes} from './route/users/users.route.config';
-import {ControlRoutes} from './route/control/control.route.config';
+import {CommonRoutesConfig} from './router/common.routes.config';
+import {AuthRoutes} from './router/auth/auth.route.config';
+import {UsersRoutes} from './router/users/users.route.config';
+import {MeasuresRoutes} from './router/measures/measures.route.config';
+import {ControlRoutes} from './router/controlMachine/controlMachine.route.config';
 import debug from 'debug';
 import './config/connection'
 
@@ -44,6 +46,8 @@ app.use(expressWinston.logger(loggerOptions));
 // after sending the Express.js application object to have the routes added to our app!
 routes.push(new UsersRoutes(app));
 routes.push(new ControlRoutes(app));
+routes.push(new AuthRoutes(app));
+routes.push(new MeasuresRoutes(app));
 
 // this is a simple route to make sure everything is working properly
 const runningMessage = `Server running at http://localhost:${PORT}`;
