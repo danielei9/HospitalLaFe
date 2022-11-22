@@ -5,17 +5,17 @@
  *   STATE:          DONE
  *  ---------------------------------------------------------------- */
 import { Request, Response } from "express";
+import { exceptions } from "winston";
 var User = require("../models/User");
 
-export const allUsers = (req: Request, res: Response) => {
-    
+export const allUsers = async (req: Request, res: Response) => {
   User.find((err: any, users: any) => {
         if (err) {
-            res.status(404).send(err);
             console.log(err);
+            return res.status(404).send(err);
         } else {
             console.log(users);
-            res.status(200).send(users);
+            return res.status(200).send(users);
         }
     });
 };
@@ -65,3 +65,14 @@ export const deleteUser = (req: Request, res: Response) => {
         }
     });
 };
+
+export const findByEmail = (req: Request,res: Response) => {
+    User.findOne({email: new RegExp('^'+name+'$', "i")}, function(err, user) {
+        if(err){
+            res.status(404).send(err);
+        } else {
+            res.status(200).send(user);
+        }
+
+    });
+}
