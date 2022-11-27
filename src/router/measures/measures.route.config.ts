@@ -14,7 +14,7 @@ import { auth } from '../../middlewares/auth.middlewares'
  (el express.Applicationobjeto principal ) y el nombre UsersRoutes al CommonRoutesConfigconstructor.
 */
 
-import { allMeasure, showMeasure, addMeasure, deleteMeasure } from "../../controllers/measure.controller";
+import { allMeasure, showMeasure, addMeasure, deleteMeasure,updateMeasure} from "../../controllers/measure.controller";
 
 export class MeasuresRoutes extends CommonRoutesConfig {
     constructor(app: express.Application) {
@@ -42,10 +42,10 @@ export class MeasuresRoutes extends CommonRoutesConfig {
                 showMeasure(req, res)
             })
             .put(auth,(req: express.Request, res: express.Response) => {
-                addMeasure(req,res);
+                updateMeasure(req,res);
             })
             .patch(auth,(req: express.Request, res: express.Response) => {
-                addMeasure(req,res);
+                updateMeasure(req,res);
             })
             .delete(auth,(req: express.Request, res: express.Response) => {
                 deleteMeasure(req,res);
