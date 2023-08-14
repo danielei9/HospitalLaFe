@@ -1,5 +1,5 @@
 
-import express from 'express';
+import express, { Application } from 'express';
 import * as http from 'http';
 import * as winston from 'winston';
 import * as expressWinston from 'express-winston';
@@ -13,7 +13,7 @@ import debug from 'debug';
 import './config/connection'
 
 
-const app: express.Application = express();
+const app: Application = express();
 const server: http.Server = http.createServer(app);
 const PORT = 7878;
 const routes: Array<CommonRoutesConfig> = [];
@@ -23,7 +23,12 @@ app.use(express.json());
 
 // here we are adding middleware to allow cross-origin requests
 app.use(cors());
-
+app.use(function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    next();
+  });
 // here we are preparing the expressWinston logging middleware configuration,
 // which will automatically log all HTTP requests handled by Express.js
 const loggerOptions: expressWinston.LoggerOptions = {
