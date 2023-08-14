@@ -28,7 +28,6 @@ export class AuthRoutes extends CommonRoutesConfig {
              *  POST   /login check if the user is registered
              * */
             .post((req: express.Request, res: express.Response) => {
-                console.log("roputer")
                 login(req, res);
             });
 
@@ -37,7 +36,6 @@ export class AuthRoutes extends CommonRoutesConfig {
              *  POST   /register register user
              * */
             .post((req: express.Request, res: express.Response) => {
-                console.log("roputer")
                 signup(req, res);
             });
 
