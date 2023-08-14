@@ -30,7 +30,7 @@ export const login = async (req: Request, res: Response) => {
     if (isMatch) {
       console.log(foundUser);
       const token = jwt.sign(
-        { _id: foundUser._id?.toString(), name: foundUser.name },
+        { _id: foundUser._id?.toString(), name: foundUser.name, email: foundUser.email, username: foundUser.username },
         SECRET_KEY_JWT,
         {
           expiresIn: "2 days",
