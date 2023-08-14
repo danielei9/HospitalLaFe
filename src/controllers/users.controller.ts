@@ -42,7 +42,7 @@ export const addUser = (req: Request, res: Response) => {
     if (err) {
       res.status(404).send(err);
     } else {
-      res.status(200).send(user);
+      res.status(201).send(user);
     }
   });
 };
@@ -72,7 +72,8 @@ export const updateUser = async (req: Request, res: Response) => {
         }
       }
     );
-  } catch (error) {
+  } 
+  catch (error) {
     res.status(404).send(error);
   }
 };
