@@ -6,11 +6,7 @@ RUN:
 - npm run build -> comando para buildear
 - npm run clean -> comando para clean build
 - npm run start -> comando para start
-
-TODO:
-
-- Test
-- Measures CRUD las rutas estan preparadas.
+- npm run test -> comando para start
 
 # Rutas
 
@@ -213,7 +209,7 @@ Machine
 Rutas relacionadas con el proceso de la máquina.
 ```
 
-**<h3 style="color:#FFD903"> ✔️ POST:  Start Machine</h3>**
+**<h3 style="color:#FFD903"> ✔️ POST:  Start Machine OLD VERSION  </h3>**
 
 ```JSON
 localhost:7878/start
@@ -226,7 +222,7 @@ Content-Type
 application/json
 ```
 
-**<h3 style="color:#FFD903"> ✔️ POST:  Stop Machine</h3>**
+**<h3 style="color:#FFD903"> ✔️ POST:  Stop Machine OLD VERSION </h3>**
 
 ```JSON
 localhost:7878/stop
